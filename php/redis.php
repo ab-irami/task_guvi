@@ -1,5 +1,9 @@
-<?php 
-    require './vendor/autoload.php';
+<?php
+require './vendor/autoload.php';
+$redis = new Predis\Client();
 
-    $redis = new Predis\Client();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $redis->flushall();
+}
 ?>

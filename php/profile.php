@@ -89,8 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     } catch (\Throwable $th) {
         echo 'Updating failed';
     }
-
-
 }
+
 
 ?>

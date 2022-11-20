@@ -84,14 +84,19 @@ $(document).ready(function () {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          icon: "success",
-          title: "Successfully logged out",
-          showConfirmButton: false,
-          timer: 1500,
+        $.ajax({
+          url: "./php/redis.php",
+          type: "POST",
+        }).done(function () {
+          Swal.fire({
+            icon: "success",
+            title: "Successfully logged out",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          window.localStorage.clear();
+          window.location.assign("./");
         });
-        window.localStorage.clear();
-        window.location.assign("./");
       }
     });
   });
