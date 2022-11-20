@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!-- JS -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="./js/register.js"></script>
+
+    <!-- Alerts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Registration Form -->
+    <section class="h-100 d-flex align-items-center justify-content-center" id="registration">
+        <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card-header fs-4 fw-bold mb-3">
+                Create your Account
+            </div>
+            <div class="card-body">
+
+                <h5 class="error text-center"></h5>
+
+                <form id="reg_form">
+                    <div class="mb-4 row">
+                        <label for="email" class="col-sm-3 col-md-4 col-form-label text-start">Email</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="email" class="form-control" id="email" placeholder="email@example.com"
+                                name="email" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="password" class="col-sm-3 col-md-4 col-form-label text-start">Password</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="password" minlength="8" class="form-control" id="password" name="password"
+                                required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="re-Password" class="col-sm-3 col-md-4 col-form-label text-start">Re-Password</label>
+                        <div class="col-sm-9 col-md-8 mb-1">
+                            <input type="password" minlength="8" class="form-control" id="re-password"
+                                name="re-password" required>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+
+                    <button type="submit" disabled class="btn w-25 btn-info mb-4 mt-3 text-white">Create</button>
+                </form>
+                <p class="text-center fs-5">Have an account? <a href="./login.html "
+                        class="text-info text-decoration-none fs-5">Login</a></p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- User Details Submission -->
+    <section id="userDetails" class="h-100 d-flex align-items-center justify-content-center d-none">
+
+        <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card-header fs-4 fw-bold mb-3">
+                Please tell something about yourself
+            </div>
+            <div class="card-body">
+                <form id="user_form">
+                    <div class="mb-4 row">
+                        <label for="fname" class="col-sm-3 col-md-4 col-form-label text-start">First name</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="name" class="form-control" id="fname" placeholder="Enter your name here"
+                                name="fname" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="lname" class="col-sm-3 col-md-4 col-form-label text-start">Last name</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="name" class="form-control" id="lname" placeholder="Enter your name here"
+                                name="lname" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="dob" class="col-sm-3 col-md-4 col-form-label text-start">Date of Birth</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="date" class="form-control" id="dob" name="dob" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="contact_number" class="col-sm-3 col-md-4 col-form-label text-start">Contact
+                            number</label>
+                        <div class="col-sm-9 col-md-8">
+                            <input type="tel" class="form-control" id="contactNumber" name="contactNumber" required>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="address" class="col-sm-3 col-md-4 col-form-label text-start">Address</label>
+                        <div class="col-sm-9 col-md-8 mb-1">
+                            <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="profileBtn"
+                        class="btn w-25 btn-info mb-4 mt-3 text-white">Proceed</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
