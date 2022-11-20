@@ -19,3 +19,26 @@ body {
 .error {
   color: red;
 }
+
+a:hover {
+  color: brown !important;
+}
+
+h1 {
+  color: black;
+  font-size: 3em;
+  letter-spacing: 0.025em;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: type-text 5s steps(20, jump-none);
+}
+
+@keyframes type-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -41,10 +41,9 @@ $(document).ready(function () {
       alert("Error try again");
     });
 
-  formControl.forEach((e) => {
-    e.addEventListener("click", function () {
-      console.log("called");
-      formControl.readOnly = false;
+  formControl.forEach((element) => {
+    element.addEventListener("click", function () {
+      element.readOnly = false;
       updateBtn.disabled = false;
     });
   });
