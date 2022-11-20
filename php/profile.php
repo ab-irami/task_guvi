@@ -30,25 +30,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    include 'redis.php';
 
-    if ($_GET['email'] != null) {
-        $email = $_GET['email'];
-        $query = array(
-            'email' => $email
-        );
+    $storedEntry = $redis->get('userData');
+    if ($storedEntry) {
+        echo $storedEntry;
+    } else {
+        if ($_GET['email'] != null) {
+            $email = $_GET['email'];
+            $query = array(
+                'email' => $email
+            );
 
-        try {
-            $userData = $userCollection->findOne($query);
-            echo json_encode($userData);
-        } catch (Throwable $e) {
-            echo "Failed";
+            try {
+                $userData = $userCollection->findOne($query);
+                $encodedData = json_encode($userData);
+                echo $encodedData;
+                $redis->set('userData', $encodedData);
+                exit();
+            } catch (Throwable $e) {
+                echo "Failed";
+            }
         }
-
-
     }
+
+
+
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+    include 'redis.php';
+
     parse_str(file_get_contents('php://input'), $_PUT);
     $email = $_PUT['email'];
     $fname = $_PUT['firstName'];
@@ -72,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
                 ],
             ]
         );
+        $redis->flushall();
         echo 'Success';
     } catch (\Throwable $th) {
         echo 'Updating failed';

@@ -9,7 +9,7 @@ const phoneNumber = document.querySelector("#contactNumber");
 const logOut = document.querySelector("#logOut");
 const error = document.querySelector("#error");
 const updateBtn = document.querySelector("#update");
-const formControl = document.querySelector(".form-control");
+const formControl = document.querySelectorAll(".form-control");
 
 const localEmail = window.localStorage.getItem("email");
 
@@ -41,9 +41,12 @@ $(document).ready(function () {
       alert("Error try again");
     });
 
-  formControl.addEventListener("click", function () {
-    formControl.readOnly = false;
-    updateBtn.disabled = false;
+  formControl.forEach((e) => {
+    e.addEventListener("click", function () {
+      console.log("called");
+      formControl.readOnly = false;
+      updateBtn.disabled = false;
+    });
   });
 
   updateBtn.addEventListener("click", function () {
